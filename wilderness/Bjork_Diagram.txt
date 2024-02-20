@@ -1,0 +1,65 @@
+title Bjork's Wilderness Adventures
+
+participant adventureData.js
+participant adventure.js
+participant adventureFunctions.js
+
+
+adventureData.js<-adventure.js:request trail data from module
+adventureData.js->adventure.js:export trail data
+loop 
+adventure.js->adventureFunctions.js: invoke totalTrailMiles() to get length of each trail
+adventure.js<--adventureFunctions.js: return sum of all trail miles
+end
+loop 
+adventure.js->adventureFunctions.js: invoke shortyTrail() to get length of each trail
+adventure.js<--adventureFunctions.js:return shortest trail length after iterating through each length of trails
+end
+loop 
+adventure.js->adventureFunctions.js: invoke longTrail() to get length of each trail
+adventure.js<--adventureFunctions.js:return longest trail length after iterating through each length of trails
+end
+loop 
+adventure.js->adventureFunctions.js:invoke cheapTrail() to get price of each trail
+adventure.js<--adventureFunctions.js:return cheapest trail length after iterating through each price of trails
+end
+loop 
+adventure.js->adventureFunctions.js: invoke pricyTrail() to get length of each trail
+adventure.js<--adventureFunctions.js:return most expensive trail length after iterating through each price of trails
+end
+
+
+adventureData.js<-adventure.js:request river data from module
+adventureData.js->adventure.js:export river data
+loop 
+adventure.js->adventureFunctions.js:invoke totalRiverMiles() to get length of each river
+adventure.js<--adventureFunctions.js:return sum of all river miles
+end
+loop 
+adventure.js->adventureFunctions.js:invoke shortyRiver() to get length of each river
+adventure.js<--adventureFunctions.js:return shortest river length after iterating through each length of rivers
+end
+loop 
+adventure.js->adventureFunctions.js:invoke longRiver() to get length of each river
+adventure.js<--adventureFunctions.js:return longest river length after iterating through each length of rivers
+end
+loop 
+adventure.js->adventureFunctions.js:invoke cheapRiver() to get length of each river
+adventure.js<--adventureFunctions.js:return cheapest river length after iterating through each length of rivers
+end
+loop 
+adventure.js->adventureFunctions.js: invoke pricyRiver() to get length of each trail
+adventure.js<--adventureFunctions.js:return most expensive river length after iterating through each length of rivers
+end
+
+loop 
+adventure.js->adventureData.js:for each trail, gather name, longitude, latitude, and plant life
+adventure.js<--adventureData.js:return trail description
+end
+loop 
+adventure.js->adventureData.js:for each river, gather name, longitude, latitude, and unique fish
+adventure.js<--adventureData.js:return river description
+end
+
+box over adventure.js:invoke getAllTrailInfo(trails)
+box over adventure.js:invoke getAllRiverInfo(rivers)
